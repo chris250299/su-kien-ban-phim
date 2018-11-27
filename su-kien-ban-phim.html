@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>[Thực hành] Sự kiện bàn phím</title>
+    <meta charset="UTF-8">
+</head>
+<body onload="doReady()">
+<img src="xuka.png" id="xuka" style="position: absolute; left: 0; top: 0;" height="150px" width="150px">
+<script>
+    var ele = document.getElementById('xuka');
+
+    function upArrowPressed() {
+
+        ele.style.top = parseInt(ele.style.top) - 5 + 'px';
+    }
+
+    function downArrowPressed() {
+        ele.style.top = parseInt(ele.style.top) + 5 + 'px';
+    }
+
+    function leftArrowPressed() {
+        ele.style.left = parseInt(ele.style.left) - 5 + 'px';
+    }
+
+    function rightArrowPressed() {
+        ele.style.left = parseInt(ele.style.left) + 5 + 'px';
+    }
+
+    function moveSelection(evt) {
+        switch (evt.keyCode) {
+            case 37:
+                leftArrowPressed();
+                break;
+            case 39:
+                rightArrowPressed();
+                break;
+            case 38:
+                upArrowPressed();
+                break;
+            case 40:
+                downArrowPressed();
+                break;
+        }
+    }
+
+    function doReady() {
+        window.addEventListener('keydown', moveSelection);
+    }
+</script>
+</body>
+</html>
